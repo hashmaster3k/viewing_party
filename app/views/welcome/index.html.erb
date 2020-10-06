@@ -3,7 +3,7 @@
 <h4>An app to watch movies with your friends</h4>
 
 <div id="login">
-  <%= form_with url: "#", local: true do |form| %>
+  <%= form_with url: '/login', local: true do |form| %>
     <%= form.text_field :email, placeholder: "Email" %><br/><br>
     <%= form.password_field :password, placeholder: "Password" %><br/><br>
     <%= form.submit "Sign In" %><br/><br>
