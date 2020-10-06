@@ -7,6 +7,6 @@ class User < ApplicationRecord
   enum role: { user: 0 }
 
   def humanize_username
-    self.email.split('@').first
+    email.split('@').first
   end
 end
