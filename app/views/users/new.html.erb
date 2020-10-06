@@ -1,0 +1,16 @@
+<center>
+<h1>Welcome to Viewing Party</h1>
+
+<p>Please Register for an Account</p>
+
+<div id="registration">
+  <%= form_with url: "/registration", local: true do |form| %>
+    <%= form.text_field :email, placeholder: "Email" %><br/><br>
+    <%= form.password_field :password, placeholder: "Password" %><br/><br>
+    <%= form.password_field :password_confirm, placeholder: "Password Confirmation" %><br/><br>
+    <%= form.submit "Register" %><br/><br>
+  <% end %>
+</div>
+
+<%= link_to "Already Registered? Log in Here", '/' %>.
+</center>
