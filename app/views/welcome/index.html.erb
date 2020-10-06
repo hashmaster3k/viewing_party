@@ -4,11 +4,11 @@
 
 <div id="login">
   <%= form_with url: "#", local: true do |form| %>
-    <%= form.text_field :email, value: "Email" %><br/><br>
-    <%= form.password_field :password, value: "Password" %><br/><br>
+    <%= form.text_field :email, placeholder: "Email" %><br/><br>
+    <%= form.password_field :password, placeholder: "Password" %><br/><br>
     <%= form.submit "Sign In" %><br/><br>
   <% end %>
 </div>
 
-<%= link_to "New to Viewing Party? Register Here", "#" %>.
+<%= link_to "New to Viewing Party? Register Here", registration_path %>.
 </center>
