@@ -6,4 +6,12 @@ RSpec.describe User do
     it { should validate_uniqueness_of :email }
     it { should validate_presence_of :password }
   end
+
+  describe "Instance Methods" do
+    it "#humanize_username" do
+      @user = User.create!(email: "longname@gmail.com", password: "12345")
+      
+      expect(@user.humanize_username).to eq('longname')
+    end
+  end
 end
