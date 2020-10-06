@@ -5,4 +5,8 @@ class User < ApplicationRecord
   has_secure_password
 
   enum role: { user: 0 }
+
+  def humanize_username
+    email.split('@').first
+  end
 end
