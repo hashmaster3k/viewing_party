@@ -26,7 +26,7 @@ RSpec.describe 'USER NEW PAGE' do
       fill_in :password_confirm, with: '123'
       click_button "Register"
 
-      expect(current_path).to eq('/user/dashboard')
+      expect(current_path).to eq(dashboard_path)
     end
 
     it 'must have matching passwords' do

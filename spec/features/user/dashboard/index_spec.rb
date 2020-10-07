@@ -7,7 +7,7 @@ RSpec.describe "User Dashboard" do
   end
   describe "As a user when I visit dashboard" do
     it "Displays a 'discover movies' button,'friends' and 'parties' sections" do
-      visit user_dashboard_path
+      visit dashboard_path
 
       expect(page).to have_content("Welcome #{@user.humanize_username}!")
       expect(page).to have_button("Discover Movies")

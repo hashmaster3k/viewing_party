@@ -11,7 +11,7 @@ module SessionsHelper
   def user_authenticate(user)
     if user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to '/user/dashboard'
+      redirect_to dashboard_path
     else
       flash[:error] = 'Credentials are incorrect'
       redirect_to '/'
