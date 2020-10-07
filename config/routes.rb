@@ -6,7 +6,5 @@ Rails.application.routes.draw do
 
   post '/login', to: 'sessions#create'
 
-  namespace :user do
-    get '/dashboard', to: 'dashboard#index'
-  end
+  get '/dashboard', to: 'user/dashboard#index'
 end

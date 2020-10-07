@@ -15,7 +15,7 @@ RSpec.describe 'CREATE SESSION' do
         click_button 'Sign In'
       end
 
-      expect(current_path).to eq('/user/dashboard')
+      expect(current_path).to eq(dashboard_path)
     end
 
     it 'gets an error with wrong email' do
