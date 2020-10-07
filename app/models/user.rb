@@ -2,6 +2,11 @@ class User < ApplicationRecord
   validates :email, uniqueness: true, presence: true
   validates :password, presence: true
 
+  has_many :followed_users, foreign_key: :follower_id, class_name: 'Friend'
+  has_many :followees, through: :followed_users
+  has_many :following_users, foreign_key: :followee_id, class_name: 'Friend'
+  has_many :followers, through: :following_users
+
   has_secure_password
 
   enum role: { user: 0 }
