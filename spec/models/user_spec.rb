@@ -7,6 +7,13 @@ RSpec.describe User do
     it { should validate_presence_of :password }
   end
 
+  describe "Relationships" do
+    it {should have_many(:followees).through(:followed_users)}
+    it {should have_many(:followers).through(:following_users)}
+    it {should have_many :followed_users}
+    it {should have_many :following_users}
+  end
+
   describe "Instance Methods" do
     it "#humanize_username" do
       @user = User.create!(email: "longname@gmail.com", password: "12345")
