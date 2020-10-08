@@ -1,4 +1,27 @@
 <center>
   <h1>Welcome <%= current_user.humanize_username %>!</h1>
-  
+
+<div class="movies-nav">
+  <div class="top-rated">
+    <%= button_to 'Find Top Rated Movies', movies_path, method: :get %>
+  </div>
+  <div class="search_movie_form">
+    <%= form_with url: movies_path, method: :get, local: true do |form| %>
+      <%= form.text_field :search, placeholder: "Search movie by title" %>
+      <%= form.submit "Find Movies" %>
+    <% end %>
+  </div>
+</div>
+
+<div class="results">
+  <table>
+    <% @top_40.each do |movie| %>
+      <tr>
+        <td><%= movie[:title] %></td>
+        <td><%= movie[:vote_average] %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
 </center>

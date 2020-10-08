@@ -16,7 +16,6 @@ RSpec.describe "Discover Index Page" do
 
     it "There is button to find to rated movies" do
       visit discover_index_path
-      expect(page).to have_button('Find Top Rated Movies')
       click_button('Find Top Rated Movies')
       expect(current_path).to eq('/movies')
     end
