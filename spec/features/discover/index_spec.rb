@@ -21,5 +21,14 @@ RSpec.describe "Discover Index Page" do
       expect(current_path).to eq('/movies')
     end
 
+    it "Has a search field and button to search by movie title. Clicking search button redirects to movie show page" do
+      visit discover_index_path
+
+      within('.search_movie_form') do
+        expect(page).to have_selector("input[placeholder='Search movie by title']")
+        click_button('Find Movies')
+      end
+      expect(current_path).to eq('/movies')
+    end
   end
 end
