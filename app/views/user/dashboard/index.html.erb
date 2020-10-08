@@ -1,10 +1,10 @@
 <center>
   <h1>Welcome <%= current_user.humanize_username %>!</h1>
-  <%= button_to 'Discover Movies', '#' %>
+  <%= button_to 'Discover Movies', '/discover', method: :get %>
 </center>
 
 <div class='friends'>
- <%= render partial: 'friends' %>
+  <%= render partial: 'friends' %>
 </div>
 
 <div class='parties'>
