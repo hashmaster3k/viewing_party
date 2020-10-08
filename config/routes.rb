@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'user/dashboard#index'
 
   resources :friends, only: [:create]
+
+  resources :discover, only: [:index]
 end
