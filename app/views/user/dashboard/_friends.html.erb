@@ -1,0 +1,12 @@
+<h2>Friends</h2><hr>
+<%= form_with url: friends_path, local: true do |form| %>
+  <%= form.text_field :email, placeholder: "Friends email" %>
+  <%= form.submit "Add Friend" %>
+<% end %>
+<% if current_user.followers != [] %>
+  <% current_user.followers.each do |follower| %>
+    <ul><%= follower.humanize_username %></ul>
+  <% end %>
+<% else %>
+  <p>You currently have no friends</p>
+<% end %>

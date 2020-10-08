@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
 
   get '/dashboard', to: 'user/dashboard#index'
+
+  resources :friends, only: [:create]
 end
