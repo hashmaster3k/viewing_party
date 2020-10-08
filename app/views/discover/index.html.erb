@@ -1,0 +1,12 @@
+<center>
+  <h1>Welcome <%= current_user.humanize_username %>!</h1>
+  <%= button_to 'Find Top Rated Movies', '/movies', method: :get %>
+
+  <h3>OR</h3>
+  <div class="search_movie_form">
+    <%= form_with url: movies_path, method: :get, local: true do |form| %>
+      <%= form.text_field :q, placeholder: "Search movie by title" %>
+      <%= form.submit "Find Movies" %>
+    <% end %>
+  </div>
+</center>
