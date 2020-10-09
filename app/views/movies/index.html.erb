@@ -6,19 +6,16 @@
     <%= button_to 'Find Top Rated Movies', movies_path, method: :get %>
   </div>
   <div class="search_movie_form">
-    <%= form_with url: movies_path, method: :get, local: true do |form| %>
-      <%= form.text_field :search, placeholder: "Search movie by title" %>
-      <%= form.submit "Find Movies" %>
-    <% end %>
+    <%= render partial: './search_form' %>
   </div>
 </div>
 
 <div class="results">
   <table>
-    <% @top_40.each do |movie| %>
+    <% @movies.each do |movie| %>
       <div class="movie">
         <tr>
-          <td class='title'><%= movie[:title] %></td>
+          <td class='title'><%= link_to movie[:title], "#" %></td>
           <td class='rating'><%= movie[:vote_average] %></td>
         </tr>
       </div>
