@@ -29,3 +29,43 @@ footer {
   align-self: baseline;
   flex-direction: row;
 }
+
+.movie-details {
+  padding: 35px;
+}
+
+.title-and-view-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 5px;
+}
+
+.stats {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 5px;
+}
+
+.summary {
+  padding-left: 15px;
+  padding-right: 15px;
+
+}
+
+.cast {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.cast-list {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.review {
+  padding: 5px;
+  margin: 5px;
+  border: solid;
+}
