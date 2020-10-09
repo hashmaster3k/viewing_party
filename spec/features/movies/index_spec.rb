@@ -11,7 +11,7 @@ RSpec.describe "Movies Index Page" do
       visit discover_index_path
       click_button 'Find Top Rated Movies'
       expect(current_path).to eq('/movies')
-      
+
       expect(page).to have_css(".movie", count: 40)
       within(first(".movie")) do
         expect(page).to have_css(".title")
@@ -49,7 +49,3 @@ RSpec.describe "Movies Index Page" do
 
   end
 end
-
-### ===== Notes
-# We need to test for 'search by title' function
-# We need to test for a link on each movie title that routes to the movie's show page
