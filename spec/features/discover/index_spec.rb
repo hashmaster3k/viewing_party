@@ -16,8 +16,7 @@ RSpec.describe "Discover Index Page" do
 
     it "There is button to find to rated movies" do
       visit discover_index_path
-      click_button('Find Top Rated Movies')
-      expect(current_path).to eq('/movies')
+      find_button('Find Top Rated Movies')
     end
 
     it "Has a search field and button to search by movie title. Clicking search button redirects to movie show page" do
@@ -25,9 +24,8 @@ RSpec.describe "Discover Index Page" do
 
       within('.search_movie_form') do
         expect(page).to have_selector("input[placeholder='Search movie by title']")
-        click_button('Find Movies')
+        find_button('Find Movies')
       end
-      expect(current_path).to eq('/movies')
     end
   end
 end
