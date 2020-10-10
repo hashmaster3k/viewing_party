@@ -8,7 +8,7 @@
       <h2><%= @movie[:title] %></h2>
     </div>
     <div class="view-button">
-      <%= button_to 'Create Viewing Party for Movie', "#" %>
+      <%= button_to 'Create Viewing Party for Movie', new_party_path, method: :get %>
     </div>
   </div>
   <div class="stats">
