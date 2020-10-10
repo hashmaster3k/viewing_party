@@ -21,6 +21,32 @@ RSpec.describe "Create a new party" do
           expect(current_path).to eq(new_party_path)
         end
       end
+
+      it "New parties page has a form to create one, with movie title, duration, date, time, and friends to invite" do
+        VCR.use_cassette( 'Top rated movies' ) do
+          
+          visit discover_index_path
+          click_button "Find Top Rated Movies"
+          within(first(".movie")) do
+            click_link
+          end
+          click_button("Create Viewing Party for Movie")
+
+          expect(page).to have_content("Movie Title")
+          expect(page).to have_content("Duration of Party")
+          expect(page).to have_content("Day")
+          expect(page).to have_content("Start Time")
+          expect(page).to have_content("Include")
+          expect(page).to have_content("You have no friends")
+          expect(page).to have_selector("input[name= 'title']")
+          expect(page).to have_selector("input[name= 'duration']")
+          expect(page).to have_selector("input[name= 'date']")
+          expect(page).to have_selector("input[name= 'time']")
+          
+          click_button("Create Party")
+          expect(current_path).to eq(dashboard_path)
+        end
+      end
     end
   end
 end
