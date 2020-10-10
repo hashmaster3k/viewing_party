@@ -1,4 +1,4 @@
-require 'rails helper'
+require 'rails_helper'
 
 RSpec.describe "Create a new party" do
   before :each do
@@ -8,7 +8,19 @@ RSpec.describe "Create a new party" do
   
   describe "As a user" do
     describe "When the user visits the new viewing party page can create a party" do
-      
+      it "Discover movies page has a link to create a party" do
+        VCR.use_cassette( 'Top rated movies' ) do
+          visit discover_index_path
+          click_button "Find Top Rated Movies"
+          
+          within(first(".movie")) do
+            click_link
+          end
+          
+          click_button("Create Viewing Party for Movie")
+          expect(current_path).to eq(new_party_path)
+        end
+      end
     end
   end
 end
