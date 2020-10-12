@@ -5,20 +5,24 @@
     <h2>Viewing Party Details</h2>
     
     <%= form_with url: parties_path, local: true  do |form| %>
-      <%= form.label :title, "Movie Title" %>
+      <ul>
+    <%= form.label :title, "Movie Title" %>
       <%= form.text_field :title, value: "< future movie name >", disabled: true %><br/>
-
+    </ul>
+    <ul>
       <%= form.label :duration, "Duration of Party" %>
       <%= form.text_field :duration, value: "< future duration >" %><br/>
-
+    </ul>
       <%= form.label :date, "Day" %>
       <%= form.date_field :date, min: Date.today, value: Date.today %><br/>
-
+    </ul>
+    <ul>
       <%= form.label :time, "Start Time" %>
-      <%= form.time_field :time %>
+      <%= form.time_field :time %><br />
+    </ul>
 
       <h4>Include</h4>
-
+    <ul>
         <% if !current_user.followers.empty? %>
           <% current_user.followers.each do |friend| %>
             <%= form.check_box :friends, {multiple: true}, friend.id %>
@@ -27,8 +31,10 @@
         <% else %>
           <p>"You have no friends yet"</p>
         <% end %> <br/>
-
+    </ul>
+    <ul>
       <%= form.submit "Create Party" %>
+    </ul>
     <% end %>
   </section>
 </center>
