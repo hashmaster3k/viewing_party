@@ -89,7 +89,7 @@ RSpec.describe "User Dashboard" do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@joe)
 
       visit dashboard_path
-      save_and_open_page
+
       within('.parties') do
         within('.hosting_parties') do
           expect(page).to have_content(party1.movie_title)
