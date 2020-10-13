@@ -71,17 +71,17 @@ RSpec.describe "User Dashboard" do
     it "Display parties the user is host to and has been invited to" do
       @joe = User.create!(email: "joe@gmail.com", password: "12345")
       @bob = User.create!(email: "bob@gmail.com", password: "12345")
-      
+
       party = Party.create!(movie_id: 1,
                             movie_title: 'Movie',
                             duration: 180,
-                            date: "#{Date.today}",
-                            time: "#{Time.now}")
+                            date: "2020-11-03",
+                            time: "17:00")
       party1 = Party.create!(movie_id: 2,
                             movie_title: 'Movie1',
                             duration: 200,
-                            date: "#{Date.today}",
-                            time: "#{Time.now}")
+                            date: "2020-11-03",
+                            time: "12:00")
 
       UserParty.create!(party_id: party.id, host_id: @bob.id, invitee_id: @joe.id)
       UserParty.create!(party_id: party1.id, host_id: @joe.id, invitee_id: @bob.id)
@@ -93,14 +93,14 @@ RSpec.describe "User Dashboard" do
       within('.parties') do
         within('.hosting_parties') do
           expect(page).to have_content(party1.movie_title)
-          expect(page).to have_content(party1.date)
-          expect(page).to have_content(party1.time)
+          expect(page).to have_content(party1.date_formatted)
+          expect(page).to have_content(party1.time_formatted)
           expect(page).to have_content('Hosting')
         end
         within('.invited_parties') do
           expect(page).to have_content(party.movie_title)
-          expect(page).to have_content(party.date)
-          expect(page).to have_content(party.time)
+          expect(page).to have_content(party.date_formatted)
+          expect(page).to have_content(party.time_formatted)
           expect(page).to have_content('Invited')
         end
       end

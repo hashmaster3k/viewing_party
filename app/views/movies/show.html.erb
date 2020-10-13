@@ -5,40 +5,40 @@
 <section class='movie-details'>
   <div class="title-and-view-button">
     <div class="title">
-      <h2><%= @movie[:title] %></h2>
+      <h2><%= @movie.title %></h2>
     </div>
     <div class="view-button">
-      <%= button_to 'Create Viewing Party for Movie', new_party_path, method: :get %>
+      <%= button_to 'Create Viewing Party for Movie', new_party_path, params: {id: @movie.id, title: @movie.title, runtime: @movie.runtime}, method: :get %>
     </div>
   </div>
   <div class="stats">
     <div class="vote">
-      Vote Average: <%= @movie[:vote_average] %>
+      Vote Average: <%= @movie.vote_average %>
     </div>
     <div class="runtime">
-      Runtime: <%= @movie[:runtime] %> minutes
+      Runtime: <%= @movie.runtime_formatted %>
     </div>
     <div class="genres">
-      Genre(s):<%= @movie[:genres].map { |genre| " " + genre[:name] }.join(",") %>
+      Genre(s):<%= @movie.genres.map { |genre| " " + genre[:name] }.join(",") %>
     </div>
   </div>
   <hr>
   <div class="summary">
     <h3>Summary</h3>
-    <p><%= @movie[:overview] %></p>
+    <p><%= @movie.overview %></p>
   </div>
   <div class="cast">
     <h3>Cast</h3>
     <div class="cast-list">
       <div class="cast-left">
-        <% @cast[0..4].each do |person| %>
+        <% @movie.cast[0..4].each do |person| %>
           <div class="cast-person" id="person-<%= person[:id] %>">
             <%= person[:name] %> as <%= person[:character] %>
           </div>
         <% end %>
       </div>
       <div class="cast-right">
-        <% @cast[5..9].each do |person| %>
+        <% @movie.cast[5..9].each do |person| %>
           <div class="cast-person" id="person-<%= person[:id] %>">
             <%= person[:name] %> as <%= person[:character] %>
           </div>
@@ -48,9 +48,9 @@
   </div>
   <hr>
   <div class="reviews">
-    <h3><%= @reviews.count %> Reviews</h3>
-    <% if @reviews.count > 0 %>
-     <% @reviews.each do |review| %>
+    <h3><%= @movie.reviews.count %> Reviews</h3>
+    <% if @movie.reviews.count > 0 %>
+     <% @movie.reviews.each do |review| %>
       <div class="review" id="review-<%= review[:id] %>">
         <h5>Author: <%= review[:author] %> </h5>
         <p><%= review[:content] %></p>

@@ -4,14 +4,14 @@
   <section class="party_detail">
     <h2>Viewing Party Details</h2>
 
-    <%= form_with url: parties_path(movie_id: 2), local: true  do |form| %>
+    <%= form_with url: parties_path(movie_id: @movie_id), local: true  do |form| %>
       <ul>
         <%= form.label :movie_title, "Movie Title" %>
-        <%= form.text_field :movie_title, value: "< future movie name >", readonly: true %><br/>
+        <%= form.text_field :movie_title, value: @movie_title, readonly: true %><br/>
       </ul>
       <ul>
         <%= form.label :duration, "Duration of Party" %>
-        <%= form.text_field :duration, value: "< future duration >" %><br/>
+        <%= form.text_field :duration, value: @movie_runtime %><br/>
       </ul>
         <%= form.label :date, "Day" %>
         <%= form.date_field :date, min: Date.today, value: Date.today %><br/>
