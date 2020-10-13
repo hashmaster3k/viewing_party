@@ -11,13 +11,13 @@
   <h2>Viewing Parties</h2><hr>
   <% if @hosted_parties.count > 0 || @invited_parties.count > 0 %>
     <article class="hosting_parties">
-      
+
       <% if @hosted_parties.count > 0 %>
         <% @hosted_parties.each do |party| %>
           <div id=party-<%=party.id%>>
             <%= party.movie_title %><br/><br/>
-            <%= party.date %><br/>
-            <%= party.time %><br/><br/>
+            <%= party.date_formatted %><br/>
+            <%= party.time_formatted %><br/><br/>
             Hosting
           </div>
         <% end %>

@@ -1,5 +1,9 @@
 class PartiesController < ApplicationController
-  def new; end
+  def new
+    @movie_id = params[:id]
+    @movie_title = params[:title]
+    @movie_runtime = params[:runtime]
+  end
 
   def create
     party = Party.create(party_params)
