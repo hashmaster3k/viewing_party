@@ -8,7 +8,7 @@ class MovieDetail
               :overview,
               :cast,
               :reviews
-              
+
   def initialize(data)
     @id = data[:id]
     @title = data[:title]
@@ -18,5 +18,11 @@ class MovieDetail
     @overview = data[:overview]
     @cast = data[:credits][:cast]
     @reviews = data[:reviews][:results]
+  end
+
+  def runtime_formatted
+    hour = runtime / 60
+    minutes = runtime % 60
+    "#{hour} hr #{minutes} min"
   end
 end

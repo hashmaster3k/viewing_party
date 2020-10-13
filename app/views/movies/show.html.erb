@@ -16,7 +16,7 @@
       Vote Average: <%= @movie.vote_average %>
     </div>
     <div class="runtime">
-      Runtime: <%= @movie.runtime %> minutes
+      Runtime: <%= @movie.runtime_formatted %>
     </div>
     <div class="genres">
       Genre(s):<%= @movie.genres.map { |genre| " " + genre[:name] }.join(",") %>
