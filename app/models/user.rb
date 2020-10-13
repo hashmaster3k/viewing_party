@@ -17,7 +17,7 @@ class User < ApplicationRecord
   end
 
   def hosted_parties
-    Party.joins(:user_parties).where('user_parties.host_id = ?', id)
+    Party.joins(:user_parties).where('user_parties.host_id = ?', id).distinct
   end
 
   def invited_parties
