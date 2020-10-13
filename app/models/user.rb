@@ -15,4 +15,12 @@ class User < ApplicationRecord
   def humanize_username
     email.split('@').first
   end
+
+  def hosted_parties
+    Party.joins(:user_parties).where('user_parties.host_id = ?', id)
+  end
+
+  def invited_parties
+    Party.joins(:user_parties).where('user_parties.invitee_id = ?', id)
+  end
 end

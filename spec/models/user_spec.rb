@@ -15,10 +15,39 @@ RSpec.describe User do
   end
 
   describe "Instance Methods" do
-    it "#humanize_username" do
-      @user = User.create!(email: "longname@gmail.com", password: "12345")
+    before :each do
+      @joe = User.create!(email: "joe@gmail.com", password: "12345")
+      @bob = User.create!(email: "bob@gmail.com", password: "12345")
+    end
 
-      expect(@user.humanize_username).to eq('longname')
+    it "#humanize_username" do
+      expect(@joe.humanize_username).to eq('joe')
+    end
+
+    it '#hosted_parties' do
+      party = Party.create!(movie_id: 1,
+                            movie_title: 'Movie',
+                            duration: 180,
+                            date: "#{Date.today}",
+                            time: "#{Time.now}")
+
+      UserParty.create!(party_id: party.id, host_id: @joe.id, invitee_id: 0)
+
+      expect(@joe.hosted_parties.count).to eq(1)
+      expect(@joe.hosted_parties.first.class).to eq(Party)
+    end
+
+    it '#invited_parties' do
+      party = Party.create!(movie_id: 1,
+                            movie_title: 'Movie',
+                            duration: 180,
+                            date: "#{Date.today}",
+                            time: "#{Time.now}")
+
+      UserParty.create!(party_id: party.id, host_id: @bob.id, invitee_id: @joe.id)
+
+      expect(@joe.invited_parties.count).to eq(1)
+      expect(@joe.invited_parties.first.class).to eq(Party)
     end
   end
 end
