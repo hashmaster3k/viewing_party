@@ -11,10 +11,16 @@ class MovieService
     [body1, body2]
   end
 
+  def self.movie_details(id)
+    get_end_point("movie/#{id}", 0, '', 'credits,reviews')
+  end
+
   private
 
-  def self.get_end_point(path, page, query = '')
-    url = "https://api.themoviedb.org/3/#{path}?api_key=#{ENV['TMDB_API_KEY']}&page=#{page}"
+  def self.get_end_point(path, page = 0, query = '', append = '')
+    url = "https://api.themoviedb.org/3/#{path}?api_key=#{ENV['TMDB_API_KEY']}"
+    url += "&append_to_response=#{append}" unless append.empty?
+    url += "&page=#{page}" unless page == 0
     url += "&query=#{query}&include_adult=false" unless query.empty?
     response = Faraday.get url
     JSON.parse(response.body, symbolize_names: true)

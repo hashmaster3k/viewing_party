@@ -11,8 +11,13 @@ class MovieFacade
     convert_to_objects(movies)
   end
 
+  def self.movie_details(id)
+    movie_results = MovieService.movie_details(id)
+    MovieDetail.new(movie_results)
+  end
+
   private
-  
+
   def self.combine_data(data)
     (data.first[:results] << data.second[:results]).flatten
   end
