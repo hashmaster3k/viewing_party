@@ -27,10 +27,10 @@ leela.followers << fry
 leela.followers << bender
 leela.followers << amy
 
-party1 = Party.create!(movie_id: 1, movie_title: 'Lego Movie', duration: 180, date: "#{Date.today}", time: "#{Time.now}")
+party1 = Party.create!(movie_id: 1, movie_title: 'Lego Movie', duration: 180, date: "2020-12-01", time: "13:00")
 party1.user_parties.create!(host_id: fry.id, invitee_id: leela.id)
 party1.user_parties.create!(host_id: fry.id, invitee_id: bender.id)
 
-party2 = Party.create!(movie_id: 2, movie_title: 'Batman', duration: 180, date: "#{Date.today}", time: "#{Time.now}")
+party2 = Party.create!(movie_id: 2, movie_title: 'Batman', duration: 180, date: "2020-12-05", time: "11:30")
 party1.user_parties.create!(host_id: leela.id, invitee_id: amy.id)
 party1.user_parties.create!(host_id: leela.id, invitee_id: hermes.id)
