@@ -3,7 +3,7 @@ class PartiesController < ApplicationController
 
   def create
     party = Party.create(party_params)
-    if params[:friends] < 1
+    if params[:friends].count > 0
       params[:friends].each do |friend|
         party.user_parties.create(host_id: current_user.id, invitee_id: friend.to_i)
       end
