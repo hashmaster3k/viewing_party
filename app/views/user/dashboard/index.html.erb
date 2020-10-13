@@ -7,6 +7,36 @@
   <%= render partial: 'friends' %>
 </div>
 
-<div class='parties'>
+<section class='parties'>
   <h2>Viewing Parties</h2><hr>
-</div>
+  <% if @hosted_parties.count > 0 || @invited_parties.count > 0 %>
+    <article class="hosting_parties">
+      
+      <% if @hosted_parties.count > 0 %>
+        <% @hosted_parties.each do |party| %>
+          <div id=party-<%=party.id%>>
+            <%= party.movie_title %><br/><br/>
+            <%= party.date %><br/>
+            <%= party.time %><br/><br/>
+            Hosting
+          </div>
+        <% end %>
+      <% end %>
+    </article>
+
+    <article class="invited_parties">
+      <% if @invited_parties.count > 0 %>
+        <% @invited_parties.each do |party| %>
+          <div id=party-<%=party.id%>>
+            <%= party.movie_title %><br/><br/>
+            <%= party.date %><br/>
+            <%= party.time %><br/><br/>
+            Invited
+          </div>
+        <% end %>
+      <% end %>
+    </article>
+  <% else %>
+    <center><h4>You have no parties</h4></center>
+  <% end %>
+</section>
