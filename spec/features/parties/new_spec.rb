@@ -9,7 +9,7 @@ RSpec.describe "Create a new party" do
   describe "As a user" do
     describe "When the user visits the new viewing party page can create a party" do
       it "Discover movies page has a link to create a party" do
-        VCR.use_cassette( 'Top rated movies' ) do
+        VCR.use_cassette( 'Movie Details' ) do
           visit discover_index_path
           click_button "Find Top Rated Movies"
 
@@ -23,7 +23,7 @@ RSpec.describe "Create a new party" do
       end
 
       it "New parties page has a form to create one, with movie title, duration, date, time, and friends to invite" do
-        VCR.use_cassette( 'Top rated movies' ) do
+        VCR.use_cassette( 'Movie details' ) do
 
           visit discover_index_path
           click_button "Find Top Rated Movies"
@@ -46,7 +46,7 @@ RSpec.describe "Create a new party" do
       end
 
       it 'can create a new viewing party' do
-        VCR.use_cassette( 'Top rated movies' ) do
+        VCR.use_cassette( 'Movie details' ) do
           @bob = User.create!(email: 'bob@gmail.com', password: '12345')
           @joe.followers << @bob
 

@@ -7,21 +7,8 @@ RSpec.describe "Movies Show Page" do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
     end
 
-    it 'can click on a movie title and is taken to the movies detail page' do
-      VCR.use_cassette('Top rated movies') do
-        visit discover_index_path
-        click_button('Find Top Rated Movies')
-
-        within(first(".movie")) do
-          click_link
-        end
-
-        expect(current_path).to eq("/movies/724089")
-      end
-    end
-
     it 'displays movie information' do
-      VCR.use_cassette('Top rated movies') do
+      VCR.use_cassette('Movie details') do
         visit discover_index_path
         click_button('Find Top Rated Movies')
 
