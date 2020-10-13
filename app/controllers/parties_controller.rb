@@ -3,8 +3,12 @@ class PartiesController < ApplicationController
 
   def create
     party = Party.create(party_params)
-    params[:friends].each do |friend|
-      party.user_parties.create(host_id: current_user.id, invitee_id: friend.to_i)
+    if params[:friends] < 1
+      params[:friends].each do |friend|
+        party.user_parties.create(host_id: current_user.id, invitee_id: friend.to_i)
+      end
+    else
+      party.user_parties.create(host_id: current_user.id, invitee_id: 0)
     end
     redirect_to dashboard_path
   end
