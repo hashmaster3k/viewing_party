@@ -1,22 +1,84 @@
 # Viewing Party
 
-This is the base repo for the [viewing party project](https://backend.turing.io/module3/projects/viewing_party) used for Turing's Backend Module 3.
+This project was created as a project for the Turing School of Software & Design. The purpose is to build foundational knowledge of API consumption, implementing WebMock and VCR for API testing, utilizing the facade and service design patterns, build self-referential relationship, and deploy continuous integration for the web app. We will also strengthen knowledge of TDD, perform refactoring, and stylize the web pages.
 
-### About this Project
+This project was completed by [Hash G](https://github.com/hashmaster3k) and [Nico R](https://github.com/nicorithner)
 
-Viewing party is an application in which users can explore movie options and create a viewing party event for the user and friend's.
+To see a live version click here ->
+https://dry-tor-99046.herokuapp.com/
 
-## Local Setup
+## Summary
 
-1. Fork and Clone the repo
-2. Install gem packages: `bundle install`
-3. Setup the database: `rails db:create`
+  - [Getting Started](#getting-started)
+  - [Setting Up API](#setting-up-api)
+  - [Testing](#running-tests)
+  - [Deployment](#deployment)
 
+## Getting Started
 
-## Versions
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-- Ruby 2.5.3
+This project was built using ruby version 2.5.3 and rails 5.2.4.3. Ensure that you either install these versions or change the versions in the Gemfile.
 
-- Rails 5.2.4.3
+### Prerequisites
 
-Example wireframes to follow are found [here](https://backend.turing.io/module3/projects/viewing_party/wireframes)
+This project uses postgresql for database management. Please download the [Postgres.app](https://postgresapp.com/downloads.html) and follow the documentation to also install the CLI tools.
+
+In addition to the standard rails gems, we used the following gems:
+```rspec```, ```capybara```, ```simplecov```, ```pry```, ```shoulda-matchers```, ```webmock```, ```vcr```, ```faraday```, ```figaro```, ```bcrypt```, and ```rubocop```.
+
+- [RSpec](https://github.com/rspec/rspec-rails) - Test Suite
+- [Capybara](https://github.com/teamcapybara/capybara) - Additional Testing Tools
+- [SimpleCov](https://github.com/simplecov-ruby/simplecov) - Test Coverage
+- [Pry](https://github.com/pry/pry) - Runtime Dev Console
+- [Shoulda Matchers](https://github.com/thoughtbot/shoulda-matchers) - Additional Testing Tools
+- [WebMock](https://github.com/bblimke/webmock) - API Testing Tool
+- [VCR](https://github.com/vcr/vcr) - Additional API Testing Tool
+- [Faraday](https://github.com/lostisland/faraday) - API Consumption
+- [Figaro](https://github.com/laserlemon/figaro) - API Key Protection
+- [BCrypt](https://github.com/codahale/bcrypt-ruby) - Password Protection for Authentication
+- [RuboCop](https://github.com/rubocop-hq/rubocop) - Linter (optional)
+
+Please follow the documentation for each gem for proper installation and functionality. Note: Most needed files/code are already added (rails_helper, spec_helper, etc.)
+
+### Installing
+
+If you plan on making your own changes and intend to push it back up, fork this repository then clone it into your directory of choice. In the main project directory, delete the file Gemfile.lock. Then, in your terminal, from the project directory run ```bundle install``` to install all the needed gems.
+
+To setup the database from your terminal, run the following commands:
+
+```
+rails db:create
+```
+```
+rails db:migrate
+```
+```
+rails db:seed
+```
+
+This will create your database, migrate the needed resources then seed the database with starting data.
+
+## Setting up API
+
+Visit [The Movie Database API](https://www.themoviedb.org/?language=en-US) to create an account and obtain an API key. Refer to the Figaro gem documentation to create your own ```application.yml``` and place your key as follows:
+
+```yml
+TMDB_API_KEY: 'INSERT KEY HERE'
+
+```
+
+## Running Tests
+
+From your main directory in the command line, type ```bundle exec rspec```. This will run all tests located in the /spec directory. If any errors or failures occur please create and issue.
+
+To run specific test files, include the file path.
+```
+bundle exec rspec spec/features/shelters/index_spec.rb
+```
+
+## Deployment
+
+Before full cloud based deployment, check that the web app is working locally by opening a new tab in terminal and run the command ```rails s```. This will run a local server which you can connect to. Type ```localhost:3000``` into your web browsers address bar and hit enter. You should see the root page with a welcome message and a login field.
+
+Cloud deployment was done with [Heroku](https://heroku.com/). Visit the ["getting started with rails"](https://devcenter.heroku.com/articles/getting-started-with-rails5) on how to deploy the web app to Heroku.
