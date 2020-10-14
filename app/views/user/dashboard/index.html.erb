@@ -1,6 +1,6 @@
 <center>
   <h1>Welcome <%= current_user.humanize_username %>!</h1>
-  <%= button_to 'Discover Movies', '/discover', method: :get %>
+  <%= button_to 'Discover Movies', discover_index_path, method: :get %>
 </center>
 
 <div class='friends'>

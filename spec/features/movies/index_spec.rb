@@ -11,7 +11,7 @@ RSpec.describe "Movies Index Page" do
       VCR.use_cassette('Top rated movies') do
         visit discover_index_path
         click_button 'Find Top Rated Movies'
-        expect(current_path).to eq('/movies')
+        expect(current_path).to eq(movies_path)
 
         expect(page).to have_css(".movie", count: 40)
         within(first(".movie")) do
@@ -34,7 +34,7 @@ RSpec.describe "Movies Index Page" do
           fill_in :title, with: 'Phoenix'
           click_button 'Find Movies'
         end
-        expect(current_path).to eq('/movies')
+        expect(current_path).to eq(movies_path)
 
         expect(page).to have_css(".movie", count: 40)
 

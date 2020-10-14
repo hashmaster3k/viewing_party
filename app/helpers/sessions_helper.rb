@@ -4,7 +4,7 @@ module SessionsHelper
       user_authenticate(user)
     else
       flash[:error] = 'Credentials are incorrect'
-      redirect_to '/'
+      redirect_to root_path
     end
   end
 
@@ -14,7 +14,7 @@ module SessionsHelper
       redirect_to dashboard_path
     else
       flash[:error] = 'Credentials are incorrect'
-      redirect_to '/'
+      redirect_to root_path
     end
   end
 end
