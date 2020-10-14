@@ -7,7 +7,7 @@ RSpec.describe 'CREATE SESSION' do
 
   describe 'a user' do
     it 'can log in and see their dashboard' do
-      visit '/'
+      visit root_path
 
       within("#login") do
         fill_in :email, with: @user.email
@@ -19,7 +19,7 @@ RSpec.describe 'CREATE SESSION' do
     end
 
     it 'gets an error with wrong email' do
-      visit '/'
+      visit root_path
 
       within("#login") do
         fill_in :email, with: 'boogy@user.com'
@@ -31,7 +31,7 @@ RSpec.describe 'CREATE SESSION' do
     end
 
     it 'gets an error with wrong password' do
-      visit '/'
+      visit root_path
 
       within("#login") do
         fill_in :email, with: @user.email

@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "Welcome Index Page" do
   describe "As a visitor" do
     it "Visit the home page and sees welcome message, button to login and registration link" do
-      visit "/"
+      visit root_path
 
       expect(page).to have_content("Welcome to Viewing Party")
       expect(page).to have_content("An app to watch movies with your friends")

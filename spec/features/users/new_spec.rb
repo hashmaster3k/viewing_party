@@ -3,10 +3,10 @@ require 'rails_helper'
 RSpec.describe 'USER NEW PAGE' do
   describe 'a visitor' do
     it 'can visit the new registration page' do
-      visit '/'
+      visit root_path
       click_link "New to Viewing Party? Register Here"
 
-      expect(current_path).to eq('/registration')
+      expect(current_path).to eq(registration_path)
 
       expect(page).to have_content("Welcome to Viewing Party")
       expect(page).to have_content("Please Register for an Account")
@@ -19,7 +19,7 @@ RSpec.describe 'USER NEW PAGE' do
     end
 
     it 'can fill out form and create an account' do
-      visit '/registration'
+      visit registration_path
 
       fill_in :email, with: 'user@test.com'
       fill_in :password, with: '123'
@@ -30,7 +30,7 @@ RSpec.describe 'USER NEW PAGE' do
     end
 
     it 'must have matching passwords' do
-      visit '/registration'
+      visit registration_path
 
       fill_in :email, with: 'user@test.com'
       fill_in :password, with: '123'
@@ -43,7 +43,7 @@ RSpec.describe 'USER NEW PAGE' do
     it 'email must be unique' do
       User.create!(email: 'user@test.com', password: 'akndf')
 
-      visit '/registration'
+      visit registration_path
 
       fill_in :email, with: 'user@test.com'
       fill_in :password, with: '123'
