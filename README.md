@@ -1,4 +1,8 @@
 # Viewing Party
+![](https://img.shields.io/badge/Rails-5.2.4.3-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a)    ![](https://img.shields.io/badge/Ruby-2.5.3-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a)  ![](https://img.shields.io/badge/Code-HTML-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=1e90ff) ![](https://img.shields.io/badge/Code-CSS-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=1e90ff) 
+[![Build Status](https://travis-ci.com/hashmaster3k/viewing_party.svg?branch=main)](https://travis-ci.com/hashmaster3k/viewing_party) ![Badge](https://marcgrimme.github.io/simplecov-small-badge/badges/coverage_badge_total.svg)
+
+
 
 This project was created as a project for the Turing School of Software & Design. The purpose is to build foundational knowledge of API consumption, implementing WebMock and VCR for API testing, utilizing the facade and service design patterns, build self-referential relationship, and deploy continuous integration for the web app. We will also strengthen knowledge of TDD, perform refactoring, and stylize the web pages.
 
