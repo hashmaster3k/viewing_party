@@ -1,0 +1,24 @@
+.all_cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 2em;
+}
+
+.party_card {
+  margin: auto;
+  width: 50%;
+  text-align: center;
+  border-style: solid;
+  border-width: 1px;
+  background: rgb(247, 247, 247);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  padding: 3em;
+  margin: 1em;
+}
+.party_card h3 {
+  font-size: large;
+  font-weight: 800;
+}
+.party_card strong {
+  font-weight: 600;
+}
