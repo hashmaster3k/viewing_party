@@ -21,8 +21,6 @@ class MovieFacade
     MovieDetail.new(movie_results)
   end
 
-  private
-
   def self.combine_data(data)
     (data.first[:results] << data.second[:results]).flatten
   end
