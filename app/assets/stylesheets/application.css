@@ -102,3 +102,11 @@ footer {
   margin: 5px;
   border: solid;
 }
+
+.upcoming {
+  display: flex;
+}
+
+.upcoming-movie img {
+  width: 50%;
+}

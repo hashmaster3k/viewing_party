@@ -6,4 +6,14 @@
   <div class="search_movie_form">
     <%= render partial: './search_form' %>
   </div>
+<br><br>
+  <hr>
+  <h3>Coming Soon to Viewing Party</h3>
+  <div class="upcoming">
+    <% @upcoming_movies.each do |movie| %>
+    <div class="upcoming-movie">
+      <%= image_tag "https://image.tmdb.org/t/p/w500#{movie.poster}" %>
+    </div>
+    <% end %>
+  </div>
 </center>

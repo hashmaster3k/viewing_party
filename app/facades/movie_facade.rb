@@ -5,6 +5,11 @@ class MovieFacade
     convert_to_objects(movies)
   end
 
+  def self.upcoming_movies
+    movies = MovieService.now_playing
+    convert_to_objects(movies[:results].sample(4))
+  end
+
   def self.search_by_title(title)
     movie_results = MovieService.search_by_title(title)
     movies = combine_data(movie_results)
