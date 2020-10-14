@@ -8,23 +8,30 @@ RSpec.describe "Discover Index Page" do
     end
 
     it "Has a button to the discover page from dashboard" do
-      visit dashboard_path
-      expect(page).to have_button('Discover Movies')
-      click_button('Discover Movies')
-      expect(current_path).to eq(discover_index_path)
+      VCR.use_cassette('upcoming movies') do
+        visit dashboard_path
+        expect(page).to have_button('Discover Movies')
+        click_button('Discover Movies')
+        expect(current_path).to eq(discover_index_path)
+      end
     end
 
     it "There is button to find to rated movies" do
-      visit discover_index_path
-      find_button('Find Top Rated Movies')
+      VCR.use_cassette('upcoming movies') do
+        visit discover_index_path
+        find_button('Find Top Rated Movies')
+      end
     end
 
     it "Has a search field and button to search by movie title. Clicking search button redirects to movie show page" do
-      visit discover_index_path
+      VCR.use_cassette('upcoming movies') do
 
-      within('.search_movie_form') do
-        expect(page).to have_selector("input[placeholder='Search movie by title']")
-        find_button('Find Movies')
+        visit discover_index_path
+
+        within('.search_movie_form') do
+          expect(page).to have_selector("input[placeholder='Search movie by title']")
+          find_button('Find Movies')
+        end
       end
     end
   end

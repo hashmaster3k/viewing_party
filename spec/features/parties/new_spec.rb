@@ -9,8 +9,10 @@ RSpec.describe "Create a new party" do
   describe "As a user" do
     describe "When the user visits the new viewing party page can create a party" do
       it "Discover movies page has a link to create a party" do
-        VCR.use_cassette( 'Top rated movies' ) do
+        VCR.use_cassette('upcoming movies') do
           visit discover_index_path
+        end
+        VCR.use_cassette( 'Top rated movies' ) do
           click_button "Find Top Rated Movies"
           VCR.use_cassette('Movie_details') do
             within(first(".movie")) do
@@ -24,9 +26,10 @@ RSpec.describe "Create a new party" do
       end
 
       it "New parties page has a form to create one, with movie title, duration, date, time, and friends to invite" do
-        VCR.use_cassette( 'Top rated movies' ) do
-
+        VCR.use_cassette('upcoming movies') do
           visit discover_index_path
+        end
+        VCR.use_cassette( 'Top rated movies' ) do
           click_button "Find Top Rated Movies"
 
           VCR.use_cassette('Movie_details') do
@@ -54,7 +57,9 @@ RSpec.describe "Create a new party" do
           @bob = User.create!(email: 'bob@gmail.com', password: '12345')
           @joe.followers << @bob
 
-          visit discover_index_path
+          VCR.use_cassette('upcoming movies') do
+            visit discover_index_path
+          end
           click_button "Find Top Rated Movies"
 
           VCR.use_cassette('Movie details') do
@@ -79,7 +84,9 @@ RSpec.describe "Create a new party" do
         VCR.use_cassette( 'Top rated movies' ) do
           @bob = User.create!(email: 'bob@gmail.com', password: '12345')
 
-          visit discover_index_path
+          VCR.use_cassette('upcoming movies') do
+            visit discover_index_path
+          end
           click_button "Find Top Rated Movies"
 
           VCR.use_cassette('Movie details') do

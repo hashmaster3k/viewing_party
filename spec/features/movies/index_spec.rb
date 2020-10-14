@@ -8,8 +8,11 @@ RSpec.describe "Movies Index Page" do
     end
 
     it 'displays top_40 movies' do
-      VCR.use_cassette('Top rated movies') do
+      VCR.use_cassette('upcoming movies') do
         visit discover_index_path
+      end
+      VCR.use_cassette('Top rated movies') do
+
         click_button 'Find Top Rated Movies'
         expect(current_path).to eq(movies_path)
 
@@ -28,8 +31,10 @@ RSpec.describe "Movies Index Page" do
     end
 
     it "Returns movie based on search suggestion. Movie title is a link" do
-      VCR.use_cassette('Movie Search Phoenix') do
+      VCR.use_cassette('upcoming movies') do
         visit discover_index_path
+      end
+      VCR.use_cassette('Movie Search Phoenix') do
         within('.search_movie_form') do
           fill_in :title, with: 'Phoenix'
           click_button 'Find Movies'

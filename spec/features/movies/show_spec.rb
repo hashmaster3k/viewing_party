@@ -8,8 +8,10 @@ RSpec.describe "Movies Show Page" do
     end
 
     it 'displays movie information' do
-      VCR.use_cassette('Top rated movies') do
+      VCR.use_cassette('upcoming movies') do
         visit discover_index_path
+      end
+      VCR.use_cassette('Top rated movies') do
         click_button('Find Top Rated Movies')
 
         VCR.use_cassette('Movie details') do
