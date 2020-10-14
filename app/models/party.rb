@@ -5,7 +5,7 @@ class Party < ApplicationRecord
   def date_formatted
     split = date.split('-')
     date_object = Date.new(split.first.to_i, split.second.to_i, split.third.to_i)
-    date_object.strftime("%B %d, %Y")
+    date_object.strftime('%B %d, %Y')
   end
 
   def time_formatted
