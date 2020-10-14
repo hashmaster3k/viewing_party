@@ -45,7 +45,7 @@ RSpec.describe "Create a new party" do
         end
       end
 
-      it 'can create a new viewing party' do
+      it 'can create a new viewing party with friends' do
         VCR.use_cassette( 'Movie details' ) do
           @bob = User.create!(email: 'bob@gmail.com', password: '12345')
           @joe.followers << @bob
@@ -62,6 +62,25 @@ RSpec.describe "Create a new party" do
           within "#friend-#{@bob.id}" do
             check
           end
+
+          click_button("Create Party")
+          expect(current_path).to eq(dashboard_path)
+        end
+      end
+
+      it 'can create a new viewing party with no friends' do
+        VCR.use_cassette( 'Movie details' ) do
+          @bob = User.create!(email: 'bob@gmail.com', password: '12345')
+
+          visit discover_index_path
+          click_button "Find Top Rated Movies"
+          within(first(".movie")) do
+            click_link
+          end
+          click_button("Create Viewing Party for Movie")
+          fill_in :duration, with: 115
+          fill_in :date, with: Date.today
+          fill_in :time, with: Time.now
 
           click_button("Create Party")
           expect(current_path).to eq(dashboard_path)
