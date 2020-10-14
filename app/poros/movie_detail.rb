@@ -4,7 +4,6 @@ class MovieDetail
               :genres,
               :vote_average,
               :runtime,
-              :vote_average,
               :overview,
               :cast,
               :reviews,
