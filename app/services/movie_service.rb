@@ -12,7 +12,7 @@ class MovieService
   end
 
   def self.movie_details(id)
-    get_end_point("movie/#{id}", 0, '', 'credits,reviews')
+    get_end_point("movie/#{id}", 0, '', 'credits,reviews,similar')
   end
 
   private
