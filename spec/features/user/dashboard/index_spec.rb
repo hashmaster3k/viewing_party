@@ -91,13 +91,13 @@ RSpec.describe "User Dashboard" do
       visit dashboard_path
 
       within('.parties') do
-        within('.hosting_parties') do
+        within('.all_cards') do
           expect(page).to have_content(party1.movie_title)
           expect(page).to have_content(party1.date_formatted)
           expect(page).to have_content(party1.time_formatted)
           expect(page).to have_content('Hosting')
         end
-        within('.invited_parties') do
+        within('.all_cards') do
           expect(page).to have_content(party.movie_title)
           expect(page).to have_content(party.date_formatted)
           expect(page).to have_content(party.time_formatted)
