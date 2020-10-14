@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   post '/registration', to: 'users#create'
 
   post '/login', to: 'sessions#create'
+  get '/logout', to: 'sessions#destroy'
 
   get '/dashboard', to: 'user/dashboard#index'
 
