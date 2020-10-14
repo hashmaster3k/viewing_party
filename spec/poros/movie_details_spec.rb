@@ -9,7 +9,8 @@ RSpec.describe MovieDetail do
             runtime: 180,
             overview: 'Sub Movie',
             credits: {cast: []},
-            reviews: {results: []}}
+            reviews: {results: []},
+            similar: {results:[]}}
 
     movie = MovieDetail.new(data)
 
@@ -22,6 +23,6 @@ RSpec.describe MovieDetail do
     expect(movie.overview).to be_a(String)
     expect(movie.cast).to be_an(Array)
     expect(movie.reviews).to be_an(Array)
-
+    expect(movie.similar).to be_an(Array)
   end
 end

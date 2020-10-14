@@ -12,6 +12,20 @@
         <p><%= msg %></p>
       </div>
     <% end %>
+
+    <% if current_user %>
+      <nav>
+        <div class="dashboard-nav">
+          <%= link_to 'DASHBOARD', dashboard_path %>
+        </div>
+        <div class="dashboard-discover">
+          <%= link_to 'DISCOVER', discover_index_path %>
+        </div>
+        <div class="dashboard-logout">
+          <%= link_to 'LOG OUT', logout_path %>
+        </div>
+      </nav>
+    <% end %>
   </head>
 
   <body>

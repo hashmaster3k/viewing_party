@@ -20,6 +20,40 @@ body {
   flex-direction: column;
 }
 
+nav {
+  display: flex;
+  justify-content: space-around;
+  font-size: large;
+  background-color: black;
+  margin: -10px;
+  margin-bottom: 10px;
+  padding: 1em;
+}
+
+nav a:link {
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+}
+
+nav a:visited {
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+}
+
+nav a:hover {
+  text-decoration: none;
+  font-weight: bold;
+  color: gray;
+}
+
+nav a:active {
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+}
+
 main {
   flex: 1;
 }
@@ -68,4 +102,12 @@ footer {
   padding: 5px;
   margin: 5px;
   border: solid;
+}
+
+.upcoming {
+  display: flex;
+}
+
+.upcoming-movie img {
+  width: 50%;
 }

@@ -5,6 +5,10 @@ class MovieService
     [body1, body2]
   end
 
+  def self.now_playing
+    get_end_point('movie/now_playing', 1)
+  end
+
   def self.search_by_title(title)
     body1 = get_end_point('search/movie', 1, title)
     body2 = get_end_point('search/movie', 2, title)
@@ -12,7 +16,7 @@ class MovieService
   end
 
   def self.movie_details(id)
-    get_end_point("movie/#{id}", 0, '', 'credits,reviews')
+    get_end_point("movie/#{id}", 0, '', 'credits,reviews,similar')
   end
 
   private

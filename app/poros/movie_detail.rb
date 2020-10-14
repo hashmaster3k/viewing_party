@@ -7,7 +7,8 @@ class MovieDetail
               :overview,
               :cast,
               :reviews,
-              :image
+              :image,
+              :similar
 
   def initialize(data)
     @id = data[:id]
@@ -19,6 +20,7 @@ class MovieDetail
     @cast = data[:credits][:cast]
     @reviews = data[:reviews][:results]
     @image = data[:backdrop_path]
+    @similar = data[:similar][:results][0..4]
   end
 
   def runtime_formatted
