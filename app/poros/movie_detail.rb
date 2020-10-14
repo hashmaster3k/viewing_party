@@ -7,7 +7,8 @@ class MovieDetail
               :vote_average,
               :overview,
               :cast,
-              :reviews
+              :reviews,
+              :image
 
   def initialize(data)
     @id = data[:id]
@@ -18,6 +19,7 @@ class MovieDetail
     @overview = data[:overview]
     @cast = data[:credits][:cast]
     @reviews = data[:reviews][:results]
+    @image = data[:backdrop_path]
   end
 
   def runtime_formatted
